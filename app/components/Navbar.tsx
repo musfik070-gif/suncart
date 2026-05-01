@@ -9,10 +9,11 @@ export default function Navbar() {
         </Link>
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-4 items-center">
         <Link href="/">Home</Link>
         <Link href="/products">Products</Link>
         <Link href="/profile">My Profile</Link>
+
         <Link href="/login" className="btn btn-sm btn-primary">
           Login
         </Link>

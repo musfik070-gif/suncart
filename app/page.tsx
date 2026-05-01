@@ -1,7 +1,8 @@
 export default function Home() {
   return (
-    <main className="p-10">
-      <button className="btn btn-primary">SunCart Button</button>
-    </main>
+    <section className="py-10">
+      <h1 className="text-4xl font-bold mb-4">Welcome to SunCart</h1>
+      <p>Your summer shopping destination.</p>
+    </section>
   );
 }
