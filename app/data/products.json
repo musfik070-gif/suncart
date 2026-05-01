@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Beach Hat",
+    "brand": "SunnyWear",
+    "price": 18,
+    "rating": 4.5,
+    "stock": 12,
+    "description": "Classic beach hat for sunny vacation days.",
+    "image": "https://images.unsplash.com/photo-1521369909029-2afed882baee?w=500",
+    "category": "Accessories"
+  },
+  {
+    "id": 3,
+    "name": "Summer T-Shirt",
+    "brand": "CoolFit",
+    "price": 25,
+    "rating": 4.8,
+    "stock": 20,
+    "description": "Comfortable cotton t-shirt for hot weather.",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500",
+    "category": "Clothing"
+  },
+  {
+    "id": 4,
+    "name": "Hydrating Sunscreen",
+    "brand": "GlowSkin",
+    "price": 22,
+    "rating": 4.9,
+    "stock": 8,
+    "description": "SPF sunscreen for daily summer protection.",
+    "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=500",
+    "category": "Skincare"
+  },
+  {
+    "id": 5,
+    "name": "Flip Flops",
+    "brand": "BeachWalk",
+    "price": 14,
+    "rating": 4.4,
+    "stock": 15,
+    "description": "Lightweight flip flops for beach comfort.",
+    "image": "https://images.unsplash.com/photo-1603484477859-abe6a73f9366?w=500",
+    "category": "Footwear"
+  },
+  {
+    "id": 6,
+    "name": "Water Bottle",
+    "brand": "HydroGo",
+    "price": 12,
+    "rating": 4.6,
+    "stock": 18,
+    "description": "Stay hydrated with insulated bottle.",
+    "image": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500",
+    "category": "Essentials"
+  }
+]
