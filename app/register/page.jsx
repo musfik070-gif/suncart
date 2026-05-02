@@ -36,12 +36,21 @@ export default function RegisterPage() {
       return;
     }
 
+    // auto login session remove
+    await authClient.signOut();
+
+    setLoading(false);
+
     const redirect = getRedirectTarget();
-    router.push(redirect ? `/login?redirect=${encodeURIComponent(redirect)}` : "/login");
+
+    router.push(
+      redirect ? `/login?redirect=${encodeURIComponent(redirect)}` : "/login",
+    );
   };
 
   const handleGoogle = async () => {
     setError("");
+
     const redirect = getRedirectTarget();
 
     await authClient.signIn.social({
@@ -52,7 +61,10 @@ export default function RegisterPage() {
 
   return (
     <section className="py-16 max-w-md mx-auto">
-      <form onSubmit={handleRegister} className="card bg-base-100 shadow-xl p-8">
+      <form
+        onSubmit={handleRegister}
+        className="card bg-base-100 shadow-xl p-8"
+      >
         <h1 className="text-4xl font-bold text-center mb-6">Register</h1>
 
         <input
