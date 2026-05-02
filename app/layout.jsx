@@ -4,21 +4,14 @@ import Footer from "./components/Footer";
 
 export const metadata = {
   title: "SunCart",
-  description: "Summer eCommerce Store",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="light">
-      <body className="min-h-screen flex flex-col">
+      <body>
         <Navbar />
-
-        <main className="flex-1 max-w-7xl mx-auto w-full px-4">{children}</main>
-
+        {children}
         <Footer />
       </body>
     </html>

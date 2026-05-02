@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <section className="py-10 space-y-14">
       {/* Hero Section */}
-      <div className="hero rounded-2xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white min-h-[420px]">
+      <div className="hero rounded-3xl bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white animate__animated animate__fadeIn">
         <div className="hero-content text-center">
           <div>
             <h1 className="text-6xl font-bold">Summer Sale 50% OFF</h1>
