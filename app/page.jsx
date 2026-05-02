@@ -1,3 +1,5 @@
+import Link from "next/link";
+import Image from "next/image";
 import products from "./data/products.json";
 
 export default function Home() {
@@ -6,15 +8,19 @@ export default function Home() {
   return (
     <section className="py-10 space-y-14">
       {/* Hero Section */}
-      <div className="hero rounded-3xl bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white animate__animated animate__fadeIn">
+      <div className="hero rounded-3xl bg-gradient-to-r from-indigo-500 to-fuchsia-600 text-white animate__animated animate__fadeIn min-h-80">
         <div className="hero-content text-center">
           <div>
-            <h1 className="text-6xl font-bold">Summer Sale 50% OFF</h1>
-            <p className="py-6 text-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+              Summer Sale 50% OFF
+            </h1>
+            <p className="py-6 text-base sm:text-lg">
               Discover sunglasses, outfits, skincare and beach essentials.
             </p>
 
-            <button className="btn btn-warning text-black">Shop Now</button>
+            <Link href="/products" className="btn btn-warning text-black">
+              Shop Now
+            </Link>
           </div>
         </div>
       </div>
@@ -35,11 +41,17 @@ export default function Home() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {popularProducts.map((product) => (
-            <div key={product.id} className="card bg-base-100 shadow-xl">
+            <div
+              key={product.id}
+              className="card bg-base-100 shadow-xl animate__animated animate__fadeInUp"
+            >
               <figure>
-                <img
+                <Image
                   src={product.image}
                   alt={product.name}
+                  width={500}
+                  height={320}
+                  unoptimized
                   className="h-64 w-full object-cover"
                 />
               </figure>
@@ -49,7 +61,12 @@ export default function Home() {
                 <p>⭐ {product.rating}</p>
                 <p className="font-bold text-primary">${product.price}</p>
 
-                <button className="btn btn-primary mt-3">View Details</button>
+                <Link
+                  href={`/products/${product.id}`}
+                  className="btn btn-primary mt-3"
+                >
+                  View Details
+                </Link>
               </div>
             </div>
           ))}

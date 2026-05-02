@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
+import { getSafeRedirect } from "@/lib/redirect";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -13,28 +14,45 @@ export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleRegister = async () => {
+  const getRedirectTarget = () => getSafeRedirect(window.location.search, "");
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
     setError("");
+    setLoading(true);
 
     const { error } = await authClient.signUp.email({
       name,
       email,
       password,
-      image,
+      image: image || undefined,
     });
 
     if (error) {
       setError(error.message || "Registration failed");
+      setLoading(false);
       return;
     }
 
-    router.push("/login");
+    const redirect = getRedirectTarget();
+    router.push(redirect ? `/login?redirect=${encodeURIComponent(redirect)}` : "/login");
+  };
+
+  const handleGoogle = async () => {
+    setError("");
+    const redirect = getRedirectTarget();
+
+    await authClient.signIn.social({
+      provider: "google",
+      callbackURL: redirect || "/",
+    });
   };
 
   return (
     <section className="py-16 max-w-md mx-auto">
-      <div className="card bg-base-100 shadow-xl p-8">
+      <form onSubmit={handleRegister} className="card bg-base-100 shadow-xl p-8">
         <h1 className="text-4xl font-bold text-center mb-6">Register</h1>
 
         <input
@@ -43,10 +61,11 @@ export default function RegisterPage() {
           className="input input-bordered w-full mb-4"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          required
         />
 
         <input
-          type="text"
+          type="url"
           placeholder="Photo URL"
           className="input input-bordered w-full mb-4"
           value={image}
@@ -59,6 +78,7 @@ export default function RegisterPage() {
           className="input input-bordered w-full mb-4"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          required
         />
 
         <input
@@ -67,12 +87,25 @@ export default function RegisterPage() {
           className="input input-bordered w-full mb-4"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
         {error && <p className="text-red-500 mb-3">{error}</p>}
 
-        <button onClick={handleRegister} className="btn btn-primary w-full">
-          Register
+        <button
+          type="submit"
+          disabled={loading}
+          className="btn btn-primary w-full mb-3"
+        >
+          {loading ? "Creating account..." : "Register"}
+        </button>
+
+        <button
+          type="button"
+          onClick={handleGoogle}
+          className="btn btn-outline w-full"
+        >
+          Continue with Google
         </button>
 
         <p className="text-center mt-4">
@@ -81,7 +114,7 @@ export default function RegisterPage() {
             Login
           </Link>
         </p>
-      </div>
+      </form>
     </section>
   );
 }
