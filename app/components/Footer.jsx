@@ -10,19 +10,34 @@ export default function Footer() {
         <div>
           <p className="font-semibold">Contact</p>
           <p className="text-sm text-gray-600">support@suncart.com</p>
-          <p className="text-sm text-gray-600">Dhaka, Bangladesh</p>
+          <p className="text-sm text-gray-600">Rajshahi, Bangladesh</p>
         </div>
 
         <div className="flex flex-col gap-1 md:items-end">
           <p className="font-semibold">Follow Us</p>
           <div className="flex justify-center md:justify-end gap-4 text-sm text-gray-600">
-            <a href="#" aria-label="SunCart Facebook page">
+            <a
+              href="#"
+              aria-label="SunCart Facebook page"
+              className="flex items-center gap-1"
+            >
+              <i className="fa-brands fa-facebook"></i>
               Facebook
             </a>
-            <a href="#" aria-label="SunCart Instagram page">
+            <a
+              href="#"
+              aria-label="SunCart Instagram page "
+              className="flex items-center gap-1"
+            >
+              <i className="fa-brands fa-instagram"></i>
               Instagram
             </a>
-            <a href="#" aria-label="SunCart Twitter page">
+            <a
+              href="#"
+              aria-label="SunCart Twitter page"
+              className="flex items-center gap-1"
+            >
+              <i className="fa-brands fa-twitter"></i>
               Twitter
             </a>
           </div>
