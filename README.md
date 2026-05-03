@@ -8,7 +8,7 @@ The project demonstrates a responsive summer store for sunglasses, outfits, skin
 
 ## Live URL
 
-Add your deployed URL here after hosting on Vercel or another Next.js-compatible platform.
+https://suncart-dkjt.vercel.app/
 
 ## Key Features
 
