@@ -19,16 +19,13 @@ export default function RootLayout({ children }) {
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         />
       </head>
-      <body className={`min-h-screen flex flex-col bg-base-100 ${inter.className}`}>
-        {/* Persistent Navbar */}
+      <body
+        className={`min-h-screen flex flex-col bg-base-100 ${inter.className}`}
+      >
         <Navbar />
-
-        {/* Page Content */}
         <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {children}
         </main>
-
-        {/* Persistent Footer */}
         <Footer />
       </body>
     </html>
